@@ -1,4 +1,3 @@
-% Problem Set 6: Advanced Macroeconomics
 % Stohastic NGM: VFI + Schumaker spline
 % Panagiotis Veneris, U of Liverpool
 % 11/1/2021 
