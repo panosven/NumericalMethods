@@ -1,4 +1,3 @@
-% Problem Set 4: Advanced Macroeconomics
 % Solve the NGM with PFI and Linear Interpolation
 % Panagiotis Veneris, U of Liverpool
 % 18/11/2020 
