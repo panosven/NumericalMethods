@@ -9,11 +9,11 @@ clc;
 
 % Define Parameters
 P.gamma = 2;             % risk aversion
-P.beta  = 0.98;           % discount factor
-Pr.R    = 1/P.beta-1e-4;    % SS real interest rate    
+P.beta  = 0.98;          % discount factor
+Pr.R    = 1/P.beta-1e-4; % SS real interest rate    
 tol     = 1e-15;             
 maxit   = 10000;
-delta   = 0.95;            % persistence of earning process                 
+delta   = 0.95;          % persistence of earning process                 
 
 
 % Step 1: Grids for state variables (a',e)/we define our grid over assets
@@ -55,12 +55,10 @@ P.tiledEndow = repmat(P.endow',1,P.gridsize); % 2x200
 
 % Guess for a
 G   = 10+0.1*P.tiledGrid;   % guess for a_t (we give a guess for the object we are looking for (a_t, V_t in VFI etc).                                                
-                          
+
+
 dif = 1;                    % criterion to check for convergence
-
 it  = 0;                    % iteration counter
-
-
 disp('solving for policy rules')
 
 % Start Loop that Iterates on Euler Equation until the fixed point is reached
