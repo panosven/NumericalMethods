@@ -1,4 +1,3 @@
-% Problem Set 3: Advanced Macroeconomics
 % Solve the Deterministic NGM with VFI and One dimensional min. algorithm + Schumaker spline
 % Panagiotis Veneris, U of Liverpool
 % 18/11/2020 
