@@ -1,6 +1,6 @@
-% Solve the Deterministic NGM with VFI and One dimensional min. algorithm + linear interp
+% Deterministic NGM with VFI + One dimensional min. algorithm + linear interp
 % Panagiotis Veneris, U of Liverpool
-% 18/11/2020 (a la Sims)
+% 18/11/2020 
 
 % NOTE 1: This is the deterministic NGM, i.e there is no aggregate (and/or)
 % idiosyncratic uncertainty
