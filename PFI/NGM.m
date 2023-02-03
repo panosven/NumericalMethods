@@ -1,4 +1,4 @@
-% Solve the NGM with PFI and Linear Interpolation
+% Deterministic NGM with PFI and Linear Interpolation
 % Panagiotis Veneris, U of Liverpool
 % 18/11/2020 
 
