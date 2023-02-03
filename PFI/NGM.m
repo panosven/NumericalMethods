@@ -3,7 +3,7 @@
 % 18/11/2020 
 
 % Notes: In PFI we give an initial guess about the policy function and then iterate on
-% the Euler equation until we find the true policy function
+% the Euler equation until we find the true policy function (i.e PFI is an Euler-equation method)
 
 clear; 
 close all;
