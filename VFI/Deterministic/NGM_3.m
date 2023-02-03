@@ -1,4 +1,4 @@
-% Solve the Deterministic NGM with VFI and One dimensional min. algorithm + cubic spline
+% Deterministic NGM with VFI + One dimensional min. algorithm + cubic spline
 % Panagiotis Veneris, U of Liverpool
 % 18/11/2020
 
