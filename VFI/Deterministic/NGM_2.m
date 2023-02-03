@@ -1,4 +1,4 @@
-% Solve the Deterministic NGM with VFI and Grid search
+% Deterministic NGM with VFI + Grid search
 % Panagiotis Veneris, U of Liverpool
 % 18/11/2020
 
