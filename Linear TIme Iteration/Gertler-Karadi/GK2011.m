@@ -47,7 +47,7 @@ p.sig_qe  = 0.1;            % size of qe shock
 p.sig_z   = 0.05;           % size of capital quality shock
 
 
-% Deterministic S.S values of model variables(#25 variables: discard (varrho) relative to dynare due to Eulers instead of FOCs, and add "nu" for mp shock, "vqe" for QE shock)
+% Deterministic S.S values of model variables(#23 variables: discard (varrho) relative to dynare due to Eulers instead of FOCs)
 s.g_ss       = p.g;                              % s.s gov. spending
 s.Pi_ss      = 1;                                % s.s inflation targeting (quarterly calibration)
 s.y_ss       = 1;                                % s.s output
@@ -71,8 +71,6 @@ s.n_ss       = s.sf_ss/s.lev_ss;                             % s.s net worth
 s.bF_ss      = s.sf_ss-s.n_ss;                               % s.s HH deposits to financial institutions(banks)
 s.ksi_ss     = (1-p.theta)/(1-p.theta*p.beta*(s.sp_ss*s.lev_ss+s.r_ss)); % s.s bank discount factor
 s.zeta_ss    = 1;                                            % s.s capital quality
-s.nu_ss      = 1;                                            % s.s value of monetary policy shock
-s.vqe_ss     = 1;                                            % s.s value of QE shock
 
 % Parameters (continued)
 p.chi     = s.w_real_ss/(s.l_ss^(p.phi)*s.c_ss^(p.sig));  % labor disutility parameter without habit persistence
@@ -85,7 +83,7 @@ syms c  rR  w_real  l  y  k  q  invest  r  ir  Pi  MC_real  n  bF  ksi  lev  sp 
 syms lc lrR lw_real ll ly lk lq linvest lr lir lPi lMC_real ln lbF lksi llev lsp lrk lsf lsg lg la lzeta % #23 lagged variables
 syms fc frR fw_real fl fy fk fq finvest fr fir fPi fMC_real fn fbF fksi flev fsp frk fsf fsg fg fa fzeta % #23 forward variables
 
-% Write non-linear system equations in symbolic format (#25 equations in #25 unknown variables)
+% Write non-linear system equations in symbolic format (#23 equations in #23 unknown variables)
 %---households---
 e.eq1 = c.^(-p.sig) - p.beta.*((fc).^(-p.sig).*ir./fPi); % Euler_bonds
 e.eq2 = w_real.* c.^(-p.sig) - p.chi.*(l.^(p.phi));      % Euler_labor
@@ -127,9 +125,9 @@ m.Vxc  = [c  rR  w_real  l  y  k  q  invest  r  ir  Pi  MC_real  n  bF  ksi  lev
 
 m.system     = [e.eq1;e.eq2;e.eq3;e.eq4;e.eq5;e.eq6;e.eq7;e.eq8;e.eq9;e.eq10;e.eq11;e.eq12;e.eq13;e.eq14;e.eq15;...
                 e.eq16;e.eq17;e.eq18;e.eq19;e.eq20;e.eq21;e.eq22;e.eq23];
-m.Vxss_total = repmat(m.Vxss,3,1); % 3x25 matrix
-m.Vxss_total = repmat(m.Vxss,3,1); % 3x25 matrix
-m.Vxss_total = m.Vxss_total(:)';   % 1x75 column vector S.S values for all variables (25 contemp.,25 lagged,25 forward), 
+m.Vxss_total = repmat(m.Vxss,3,1); % 3x23 matrix
+m.Vxss_total = repmat(m.Vxss,3,1); % 3x23 matrix
+m.Vxss_total = m.Vxss_total(:)';   % 1x69 column vector S.S values for all variables (25 contemp.,25 lagged,25 forward), 
 varnum       = size(m.Vxss,2);     % number of variables
 
 % Auxiliary matrix
@@ -229,28 +227,28 @@ plot(x(5,:),'-o','linewidth',1.5,'color',[0 0.4470 0.7410]); % output
 xlabel('Period','FontSize',12,'fontname','times');
 ylabel('% dev. from SS','FontSize',12,'fontname','times')
 title('Output')
-box on
+box on; grid on;
 
 subplot(3,3,2)
 plot(x(1,:),'-o','linewidth',1.5,'color',[0 0.4470 0.7410]); % consumption            
 xlabel('Period','FontSize',12,'fontname','times');
 ylabel('% dev. from SS','FontSize',12,'fontname','times')
 title('Consumption')
-box on
+box on; grid on;
 
 subplot(3,3,3)
 plot(x(8,:),'-o','linewidth',1.5,'color',[0 0.4470 0.7410]); % investment 
 xlabel('Period','FontSize',12,'fontname','times');
 ylabel('% dev. from SS','FontSize',12,'fontname','times')
 title('Net Investment')
-box on
+box on; grid on;
 
 subplot(3,3,4)
 plot(x(6,:),'-o','linewidth',1.5,'color',[0 0.4470 0.7410]); % capital               
 xlabel('Period','FontSize',12,'fontname','times'); 
 ylabel('% dev. from SS','FontSize',12,'fontname','times')
 title('Capital')
-box on
+box on; grid on;
 
 subplot(3,3,5)
 hold on
@@ -258,7 +256,7 @@ plot(x(7,:),'-o','linewidth',1.5,'color',[0 0.4470 0.7410]); % Tobin's q
 xlabel('Period','FontSize',12,'fontname','times');
 ylabel('% dev. from SS','FontSize',12,'fontname','times')
 title('Tobin Q')
-box on
+box on; grid on;
 
 subplot(3,3,6)
 hold on
@@ -266,7 +264,7 @@ plot(x(11,:),'-o','linewidth',1.5,'color',[0 0.4470 0.7410]); % inflation
 xlabel('Period','FontSize',12,'fontname','times');
 ylabel('% dev. from SS','FontSize',12,'fontname','times')
 title('Inflation')
-box on
+box on; grid on;
 
 subplot(3,3,7)
 hold on
@@ -274,7 +272,7 @@ plot(x(17,:),'-o','linewidth',1.5,'color',[0 0.4470 0.7410]); % spread
 xlabel('Period','FontSize',12,'fontname','times');
 ylabel('% dev. from SS','FontSize',12,'fontname','times')
 title('Spread')
-box on
+box on; grid on;
 
 subplot(3,3,8)
 hold on
@@ -282,7 +280,7 @@ plot(x(16,:),'-o','linewidth',1.5,'color',[0 0.4470 0.7410]); % leverage
 xlabel('Period','FontSize',12,'fontname','times');
 ylabel('% dev. from SS','FontSize',12,'fontname','times')
 title('Leverage')
-box on
+box on; grid on;
 
 subplot(3,3,9)
 hold on
@@ -290,4 +288,4 @@ plot(x(13,:),'-o','linewidth',1.5,'color',[0 0.4470 0.7410]); % net worth
 xlabel('Period','FontSize',12,'fontname','times');
 ylabel('% dev. from SS','FontSize',12,'fontname','times')
 title('Net Worth')
-box on
+box on; grid on;
