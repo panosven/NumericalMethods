@@ -80,7 +80,7 @@ p.omega   = s.n_ss*(1-p.theta*(s.sp_ss*s.lev_ss+s.r_ss))/s.sf_ss;       % s.s tr
 p.lambda  = s.ksi_ss/s.lev_ss+p.beta*s.ksi_ss*s.sp_ss;                  % s.s fraction of divertable assets (in SS r = 1/beta)
 p.gammaP  = (p.epsilon-1)*calvo/(s.Pi_ss^2*(1-calvo)*(1-p.beta*calvo)); % adjustment cost parameter
 
-% Set up non-linear stochastic system symbolically and separate forward,lagged and contemporaneous variables (#25 variables)
+% Set up non-linear stochastic system symbolically and separate forward,lagged and contemporaneous variables (#23 variables)
 syms c  rR  w_real  l  y  k  q  invest  r  ir  Pi  MC_real  n  bF  ksi  lev  sp  rk  sf  sg  g  a  zeta  % #23 contemporaneous variables
 syms lc lrR lw_real ll ly lk lq linvest lr lir lPi lMC_real ln lbF lksi llev lsp lrk lsf lsg lg la lzeta % #23 lagged variables
 syms fc frR fw_real fl fy fk fq finvest fr fir fPi fMC_real fn fbF fksi flev fsp frk fsf fsg fg fa fzeta % #23 forward variables
