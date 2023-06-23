@@ -59,7 +59,6 @@ s.t_r_ss     = s.w_real_ss * s.h_ss - s.c_ss; % s.s taxes on rule-of-thumb consu
 s.d_ss       = 4*p.D;                         % s.s public debt to gdp ratio
 s.t_o_ss     = (s.g_ss + (1/p.beta - 1) * s.d_ss - p.eta*s.t_r_ss)/(1-p.eta); % s.s taxes on optimizing consumers
 s.a_ss       = s.y_ss / (s.k_ss^(p.alpha)*s.h_ss^(1-p.alpha)); % s.s productivity (calibrated to yield y_ss=1)
-s.nu_ss      = 1;      % s.s monetary policy shock
 s.c_o_ss     = s.c_ss; % s.s consumption of optimizing hhs (see Gali et al,2007,JEEA, pg243)
 s.c_r_ss     = s.c_ss; % s.s consumption of rule-of-thumb hhs (see Gali et al,2007,JEEA, pg243)
 s.h_o_ss     = s.h_ss; % s.s hours worked of optimizing hhs (see Gali et al,2007,JEEA, pg243)
@@ -69,12 +68,12 @@ s.h_r_ss     = s.h_ss; % s.s hours worked of rule-of-thumb hhs (see Gali et al,2
 p.kappaL     = s.w_real_ss / (s.h_ss^(p.phi)*s.c_ss^(p.sigma)); % disutility from labor parameter
 p.kappaP     = (p.epsilon-1)*calvo/(s.Pi_ss^2*(1-calvo)*(1-p.beta*calvo)); % adjustment cost parameter
 
-% Set up non-linear stochastic system symbolically and separate forward,lagged and contemporaneous variables (#24 variables)
+% Set up non-linear stochastic system symbolically and separate forward,lagged and contemporaneous variables (#21 variables)
 syms c Rreal rk w_real h y k q invest Rnom MC_real Pi g a c_o c_r h_o h_r t_o t_r d % contemporaneous                  
 syms lc lRreal lrk lw_real lh ly lk lq linvest lRnom lMC_real lPi lg la lc_o lc_r lh_o lh_r lt_o lt_r ld  % lagged    
 syms fc fRreal frk fw_real fh fy fk fq finvest fRnom fMC_real fPi fg fa fc_o fc_r fh_o fh_r ft_o ft_r fd  % forward   
 
-% Write non-linear system equations in symbolic format (#22 equations in #22 unknown variables)
+% Write non-linear system equations in symbolic format (#21 equations in #21 unknown variables)
 %---households---
 e.eq1  = c_o.^(-p.sigma) - p.beta.* ((fc_o).^(-p.sigma) .* Rnom./fPi);       % Euler_b for optimizing hhs
 e.eq2  = 1 - ((p.beta./q).* (fc_o./c_o).^(-p.sigma).*(frk+(1-p.delta).*fq)); % Euler_k for optimizing hhs
