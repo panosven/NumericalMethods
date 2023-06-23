@@ -107,7 +107,7 @@ m.Vxss = [s.c_ss,s.Rreal_ss,s.rk_ss,s.w_real_ss,s.h_ss,s.y_ss,s.k_ss,s.q_ss,s.in
           s.a_ss,s.c_o_ss,s.c_r_ss,s.h_o_ss,s.h_r_ss,s.t_o_ss,s.t_r_ss,s.d_ss]; 
 m.Vxf = [fc fRreal frk fw_real fh fy fk fq finvest fRnom fMC_real fPi fg fa fc_o fc_r fh_o fh_r ft_o ft_r fd]; % 1x21 vector of forward symbolic variables   
 m.Vxl = [lc lRreal lrk lw_real lh ly lk lq linvest lRnom lMC_real lPi lg la lc_o lc_r lh_o lh_r lt_o lt_r ld ]; % 1x21 vector of lagged symbolic variables    
-m.Vxc = [c Rreal rk w_real h y k q invest Rnom MC_real Pi g a c_o c_r h_o h_r t_o t_r d ]; % 1x22 vector of contemporaneous symbolic variables                 
+m.Vxc = [c Rreal rk w_real h y k q invest Rnom MC_real Pi g a c_o c_r h_o h_r t_o t_r d ]; % 1x21 vector of contemporaneous symbolic variables                 
 
 m.system     = [e.eq1;e.eq2;e.eq3;e.eq4;e.eq5;e.eq6;e.eq7;e.eq8;e.eq9;e.eq10;e.eq11;e.eq12;e.eq13;e.eq14;... % system of equations in row vector form                
                 e.eq15;e.eq16;e.eq17;e.eq18;e.eq19;e.eq20;e.eq21];
