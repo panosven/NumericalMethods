@@ -41,7 +41,7 @@ p.sig_g   = 0.01;     % size of government spending
 p.g       = 0.2;      % public spending over gdp ratio:(G_t-G_ss)/Y=0.2, similar to Gali 2007
 p.D       = 1;        % annual public debt to gdp ratio (in general, d is equivalent to b in Gali's paper)
 
-% Deterministic S.S values of model variables(#22 variables)
+% Deterministic S.S values of model variables(#21 variables)
 s.g_ss       = p.g;      % s.s gov. spending
 s.Pi_ss      = 1;        % s.s gross inflation rate
 s.y_ss       = 1;        % s.s aggregate output (gdp); productivity (a) calibrated to yield y_ss = 1
