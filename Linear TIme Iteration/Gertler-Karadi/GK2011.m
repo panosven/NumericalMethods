@@ -127,7 +127,7 @@ m.system     = [e.eq1;e.eq2;e.eq3;e.eq4;e.eq5;e.eq6;e.eq7;e.eq8;e.eq9;e.eq10;e.e
                 e.eq16;e.eq17;e.eq18;e.eq19;e.eq20;e.eq21;e.eq22;e.eq23];
 m.Vxss_total = repmat(m.Vxss,3,1); % 3x23 matrix
 m.Vxss_total = repmat(m.Vxss,3,1); % 3x23 matrix
-m.Vxss_total = m.Vxss_total(:)';   % 1x69 column vector S.S values for all variables (25 contemp.,25 lagged,25 forward), 
+m.Vxss_total = m.Vxss_total(:)';   % 1x69 column vector S.S values for all variables (23 contemp.,23 lagged,23 forward), 
 varnum       = size(m.Vxss,2);     % number of variables
 
 % Auxiliary matrix
